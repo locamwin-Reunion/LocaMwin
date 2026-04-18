@@ -1,27 +1,30 @@
+.container {
+    background-color: white;
+    color: black;
+}
+
 .header {
-  background-color: #f8f9fa;
-  padding: 20px;
-  text-align: center;
+    background-color: orange;
+    padding: 10px;
+    text-align: center;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-around;
-  background-color: #007bff;
+.button {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
 }
 
-.nav-link {
-  color: white;
-  text-decoration: none;
-  padding: 15px;
+.button:hover {
+    background-color: black;
+    color: orange;
 }
 
-.main-content {
-  padding: 20px;
-}
-
-.footer {
-  background-color: #f8f9fa;
-  text-align: center;
-  padding: 10px;
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
 }
