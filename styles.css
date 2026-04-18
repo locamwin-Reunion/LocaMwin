@@ -1,0 +1,27 @@
+.header {
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #007bff;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+.footer {
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 10px;
+}
