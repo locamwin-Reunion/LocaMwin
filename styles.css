@@ -5,196 +5,494 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
     color: #1a1a1a;
-    background: white;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
 }
 
+/* ===== HEADER ===== */
 .header {
-    background-color: #FF8C00;
+    background: linear-gradient(135deg, #FF8C00 0%, #FF6B00 100%);
     color: white;
-    padding: 30px;
+    padding: 40px 20px;
     text-align: center;
+    box-shadow: 0 8px 16px rgba(255, 140, 0, 0.3);
 }
 
-.header h1 {
-    font-size: 2.5em;
+.header-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+.header-content p {
+    font-size: 1.2em;
+    opacity: 0.95;
+}
+
+.phone {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* ===== NAVBAR ===== */
 .navbar {
     background-color: #1a1a1a;
     padding: 15px;
     text-align: center;
     position: sticky;
     top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.navbar a {
+.nav-link {
     color: white;
-    margin: 0 20px;
     text-decoration: none;
-    transition: 0.3s;
+    padding: 10px 25px;
+    margin: 0 10px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    border-radius: 5px;
 }
 
-.navbar a:hover {
-    color: #FF8C00;
+.nav-link:hover {
+    background-color: #FF8C00;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(255, 140, 0, 0.4);
 }
 
+/* ===== HERO SECTION ===== */
 .hero {
-    background: linear-gradient(rgba(26,26,26,0.7), rgba(26,26,26,0.7)), url('https://via.placeholder.com/1200x400');
-    background-size: cover;
+    background: linear-gradient(rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.5)), 
+                url('https://images.unsplash.com/photo-1506157786151-b8491531f063?w=1200&h=400&fit=crop') center/cover;
     color: white;
     text-align: center;
-    padding: 100px 20px;
+    padding: 120px 20px;
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.hero h2 {
-    font-size: 2.5em;
+.hero-content h2 {
+    font-size: 2.8em;
     margin-bottom: 20px;
+    animation: slideInDown 0.8s ease;
 }
 
-.voitures, .reservation, .contact {
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    animation: slideInUp 0.8s ease;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, #FF8C00 0%, #FF6B00 100%);
+    color: white;
+    padding: 15px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 16px rgba(255, 140, 0, 0.4);
+    border: 2px solid transparent;
+}
+
+.btn-primary:hover {
+    background: white;
+    color: #FF8C00;
+    transform: scale(1.1);
+    box-shadow: 0 12px 24px rgba(255, 140, 0, 0.6);
+    border: 2px solid #FF8C00;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== VOITURES SECTION ===== */
+.voitures {
     max-width: 1200px;
-    margin: 60px auto;
+    margin: 80px auto;
     padding: 0 20px;
 }
 
-.voitures h2, .reservation h2, .contact h2 {
+.voitures h2 {
     text-align: center;
-    font-size: 2em;
-    margin-bottom: 40px;
+    font-size: 2.5em;
+    margin-bottom: 60px;
     color: #1a1a1a;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.voitures h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(135deg, #FF8C00 0%, #FF6B00 100%);
+    border-radius: 2px;
 }
 
 .cars-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
 }
 
 .car-card {
     background: white;
-    border: 2px solid #FF8C00;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    border: 3px solid #FF8C00;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .car-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 12px rgba(255,140,0,0.3);
+    transform: translateY(-15px);
+    box-shadow: 0 16px 32px rgba(255, 140, 0, 0.3);
+    border-color: #1a1a1a;
+}
+
+.car-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.car-image.dacia {
+    background-image: url('https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&h=300&fit=crop');
+}
+
+.car-image.fiesta {
+    background-image: url('https://images.unsplash.com/photo-1515188629355-ef3a3c8b3c4e?w=400&h=300&fit=crop');
+}
+
+.car-image.captur {
+    background-image: url('https://images.unsplash.com/photo-1553505740-d6c1142a8f09?w=400&h=300&fit=crop');
 }
 
 .car-card h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+    font-size: 1.6em;
+    margin: 20px 15px 10px;
     color: #1a1a1a;
 }
 
 .car-card .price {
-    font-size: 1.3em;
+    margin: 10px 15px;
+    font-size: 1.4em;
     color: #FF8C00;
     font-weight: bold;
-    margin: 10px 0;
 }
 
-.car-card ul {
+.car-card .features {
     list-style: none;
-    margin: 15px 0;
-    text-align: left;
+    margin: 15px 15px;
+    padding: 0;
 }
 
-.car-card li {
-    padding: 5px 0;
+.car-card .features li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
     color: #333;
 }
 
-.car-card button {
-    background-color: #FF8C00;
+.car-card .features li:last-child {
+    border-bottom: none;
+}
+
+.btn-reserve {
+    width: 90%;
+    margin: 20px 5%;
+    padding: 14px;
+    background: linear-gradient(135deg, #FF8C00 0%, #FF6B00 100%);
     color: white;
-    padding: 12px 30px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    border-radius: 8px;
+    font-size: 1em;
     font-weight: bold;
-    transition: 0.3s;
-    width: 100%;
-    margin-top: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 12px rgba(255, 140, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.car-card button:hover {
-    background-color: #1a1a1a;
+.btn-reserve:hover {
+    background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(26, 26, 26, 0.4);
 }
 
-.reservation form {
+.btn-reserve:active {
+    transform: translateY(-1px);
+}
+
+/* ===== RESERVATION SECTION ===== */
+.reservation {
+    background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+    padding: 80px 20px;
+    margin: 80px 0;
+}
+
+.reservation h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    color: #1a1a1a;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.reservation h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(135deg, #FF8C00 0%, #FF6B00 100%);
+    border-radius: 2px;
+}
+
+.form-container {
     max-width: 600px;
     margin: 0 auto;
-    background: #f9f9f9;
-    padding: 30px;
-    border-radius: 8px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-left: 5px solid #FF8C00;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
     border: 2px solid #FF8C00;
-}
-
-.reservation input, .reservation select {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 1em;
+    transition: all 0.3s ease;
 }
 
-.reservation button {
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #1a1a1a;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
+    transform: scale(1.02);
+}
+
+.price-display {
+    background: linear-gradient(135deg, #FF8C00 0%, #FF6B00 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px 0;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    box-shadow: 0 6px 12px rgba(255, 140, 0, 0.3);
+}
+
+.btn-submit {
     width: 100%;
-    padding: 12px;
-    background-color: #FF8C00;
+    padding: 16px;
+    background: linear-gradient(135deg, #FF8C00 0%, #FF6B00 100%);
     color: white;
     border: none;
-    border-radius: 5px;
-    font-size: 1em;
+    border-radius: 8px;
+    font-size: 1.1em;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 16px rgba(255, 140, 0, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.reservation button:hover {
-    background-color: #1a1a1a;
+.btn-submit:hover {
+    background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(26, 26, 26, 0.4);
 }
 
+.btn-submit:active {
+    transform: translateY(-1px);
+}
+
+/* ===== CONTACT SECTION ===== */
 .contact {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
     text-align: center;
-    background: #f9f9f9;
-    padding: 40px;
-    border-radius: 8px;
 }
 
-.contact p {
-    font-size: 1.1em;
-    margin: 10px 0;
+.contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    color: #1a1a1a;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.contact h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(135deg, #FF8C00 0%, #FF6B00 100%);
+    border-radius: 2px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.contact-item {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #FF8C00;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(255, 140, 0, 0.3);
+}
+
+.contact-item h3 {
+    margin-bottom: 15px;
+    color: #FF8C00;
+    font-size: 1.3em;
+}
+
+.contact-item p {
     color: #333;
+    font-size: 1.1em;
+    font-weight: bold;
 }
 
+/* ===== FOOTER ===== */
 .footer {
-    background-color: #1a1a1a;
+    background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
     color: white;
     text-align: center;
-    padding: 20px;
-    margin-top: 60px;
+    padding: 30px 20px;
+    margin-top: 80px;
 }
 
+.footer p {
+    margin: 8px 0;
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-    .navbar a {
-        display: block;
-        margin: 10px 0;
+    .header-content h1 {
+        font-size: 2em;
     }
 
-    .hero h2 {
-        font-size: 1.5em;
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-link {
+        width: 100%;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .voitures h2,
+    .reservation h2,
+    .contact h2 {
+        font-size: 1.8em;
     }
 
     .cars-container {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content h1 {
+        font-size: 1.5em;
+    }
+
+    .hero {
+        padding: 60px 10px;
+        min-height: 300px;
+    }
+
+    .hero-content h2 {
+        font-size: 1.3em;
+    }
+
+    .btn-primary {
+        padding: 12px 30px;
+        font-size: 0.9em;
     }
 }
