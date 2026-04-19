@@ -1,30 +1,200 @@
-.container {
-    background-color: white;
-    color: black;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #1a1a1a;
+    background: white;
 }
 
 .header {
-    background-color: orange;
-    padding: 10px;
+    background-color: #FF8C00;
+    color: white;
+    padding: 30px;
     text-align: center;
 }
 
-.button {
-    background-color: orange;
+.header h1 {
+    font-size: 2.5em;
+}
+
+.navbar {
+    background-color: #1a1a1a;
+    padding: 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+
+.navbar a {
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #FF8C00;
+}
+
+.hero {
+    background: linear-gradient(rgba(26,26,26,0.7), rgba(26,26,26,0.7)), url('https://via.placeholder.com/1200x400');
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.voitures, .reservation, .contact {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.voitures h2, .reservation h2, .contact h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: #1a1a1a;
+}
+
+.cars-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.car-card {
+    background: white;
+    border: 2px solid #FF8C00;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.car-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(255,140,0,0.3);
+}
+
+.car-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.car-card .price {
+    font-size: 1.3em;
+    color: #FF8C00;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.car-card ul {
+    list-style: none;
+    margin: 15px 0;
+    text-align: left;
+}
+
+.car-card li {
+    padding: 5px 0;
+    color: #333;
+}
+
+.car-card button {
+    background-color: #FF8C00;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.car-card button:hover {
+    background-color: #1a1a1a;
+}
+
+.reservation form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    border: 2px solid #FF8C00;
+}
+
+.reservation input, .reservation select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.reservation button {
+    width: 100%;
+    padding: 12px;
+    background-color: #FF8C00;
     color: white;
     border: none;
-    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-.button:hover {
-    background-color: black;
-    color: orange;
+.reservation button:hover {
+    background-color: #1a1a1a;
 }
 
-footer {
-    background-color: black;
+.contact {
+    text-align: center;
+    background: #f9f9f9;
+    padding: 40px;
+    border-radius: 8px;
+}
+
+.contact p {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: #333;
+}
+
+.footer {
+    background-color: #1a1a1a;
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 20px;
+    margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+    .navbar a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .hero h2 {
+        font-size: 1.5em;
+    }
+
+    .cars-container {
+        grid-template-columns: 1fr;
+    }
 }
