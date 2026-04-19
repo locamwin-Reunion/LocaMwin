@@ -7,97 +7,187 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <h1>LocaMwin</h1>
+            <h1>🟠 LocaMwin 🟠</h1>
             <p>Location Île de la Réunion</p>
-            <p>📞 06 93 61 64 24</p>
+            <p class="phone">📞 06 93 61 64 24</p>
         </div>
     </header>
 
+    <!-- Navigation -->
     <nav class="navbar">
-        <a href="#accueil">Accueil</a>
-        <a href="#voitures">Nos Voitures</a>
-        <a href="#reservation">Réservation</a>
-        <a href="#contact">Contact</a>
+        <a href="#accueil" class="nav-link">Accueil</a>
+        <a href="#voitures" class="nav-link">Nos Voitures</a>
+        <a href="#reservation" class="nav-link">Réservation</a>
+        <a href="#contact" class="nav-link">Contact</a>
     </nav>
 
+    <!-- Hero Section -->
     <section id="accueil" class="hero">
-        <h2>Louez Votre Voiture à La Réunion</h2>
-        <p>À partir de 22€ par jour</p>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2>🏔️ Louez Votre Voiture à La Réunion 🏔️</h2>
+            <p>À partir de 22€ par jour - Service de qualité garantie!</p>
+            <a href="#voitures" class="btn-primary">Découvrir nos voitures</a>
+        </div>
     </section>
 
+    <!-- Voitures Section -->
     <section id="voitures" class="voitures">
-        <h2>Nos Voitures Disponibles</h2>
+        <h2>Nos Véhicules Disponibles</h2>
         <div class="cars-container">
+            
+            <!-- Dacia Logan -->
             <div class="car-card">
+                <div class="car-image dacia"></div>
                 <h3>Dacia Logan</h3>
                 <p class="price">25€/jour</p>
-                <ul>
+                <ul class="features">
                     <li>✓ Kilométrage illimité</li>
                     <li>✓ Climatisation</li>
                     <li>✓ Régulateur de vitesse</li>
-                    <li>✓ Livraison sur toute l'île</li>
+                    <li>✓ Livraison partout</li>
                 </ul>
-                <button onclick="alert('Réservation - Dacia Logan')">Réserver</button>
+                <button class="btn-reserve" onclick="reserverVoiture('Dacia Logan', 25)">RÉSERVER</button>
             </div>
 
+            <!-- Ford Fiesta -->
             <div class="car-card">
+                <div class="car-image fiesta"></div>
                 <h3>Ford Fiesta</h3>
                 <p class="price">22€/jour</p>
-                <ul>
+                <ul class="features">
                     <li>✓ Kilométrage illimité</li>
                     <li>✓ Climatisation</li>
                     <li>✓ Régulateur de vitesse</li>
-                    <li>✓ Livraison sur toute l'île</li>
+                    <li>✓ Livraison partout</li>
                 </ul>
-                <button onclick="alert('Réservation - Ford Fiesta')">Réserver</button>
+                <button class="btn-reserve" onclick="reserverVoiture('Ford Fiesta', 22)">RÉSERVER</button>
             </div>
 
+            <!-- Renault Captur -->
             <div class="car-card">
+                <div class="car-image captur"></div>
                 <h3>Renault Captur</h3>
                 <p class="price">25€/jour</p>
-                <ul>
+                <ul class="features">
                     <li>✓ Kilométrage illimité</li>
                     <li>✓ Climatisation</li>
                     <li>✓ Régulateur de vitesse</li>
-                    <li>✓ Livraison sur toute l'île</li>
+                    <li>✓ Livraison partout</li>
                 </ul>
-                <button onclick="alert('Réservation - Renault Captur')">Réserver</button>
+                <button class="btn-reserve" onclick="reserverVoiture('Renault Captur', 25)">RÉSERVER</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Formulaire de Réservation -->
+    <section id="reservation" class="reservation">
+        <h2>Formulaire de Réservation</h2>
+        <form id="reservationForm" class="form-container">
+            <div class="form-group">
+                <label for="nom">Nom complet :</label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="telephone">Téléphone :</label>
+                <input type="tel" id="telephone" name="telephone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="voiture">Voiture :</label>
+                <select id="voiture" name="voiture" required onchange="calculerPrix()">
+                    <option value="">-- Sélectionnez une voiture --</option>
+                    <option value="Dacia Logan - 25€">Dacia Logan - 25€/jour</option>
+                    <option value="Ford Fiesta - 22€">Ford Fiesta - 22€/jour</option>
+                    <option value="Renault Captur - 25€">Renault Captur - 25€/jour</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dateDebut">Date de début :</label>
+                <input type="date" id="dateDebut" name="dateDebut" required onchange="calculerPrix()">
+            </div>
+
+            <div class="form-group">
+                <label for="dateFin">Date de fin :</label>
+                <input type="date" id="dateFin" name="dateFin" required onchange="calculerPrix()">
+            </div>
+
+            <div class="price-display">
+                <p>Prix estimé : <strong id="prixTotal">0€</strong></p>
+            </div>
+
+            <button type="submit" class="btn-submit">✓ CONFIRMER LA RÉSERVATION</button>
+        </form>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Nous Contacter</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <h3>📞 Téléphone</h3>
+                <p>06 93 61 64 24</p>
+            </div>
+            <div class="contact-item">
+                <h3>📧 Email</h3>
+                <p>info@locamwin.re</p>
+            </div>
+            <div class="contact-item">
+                <h3>📍 Localisation</h3>
+                <p>La Réunion, France</p>
             </div>
         </div>
     </section>
 
-    <section id="reservation" class="reservation">
-        <h2>Formulaire de Réservation</h2>
-        <form id="form">
-            <input type="text" placeholder="Nom complet" required>
-            <input type="email" placeholder="Email" required>
-            <input type="tel" placeholder="Téléphone" required>
-            <select required>
-                <option>Sélectionnez une voiture</option>
-                <option>Dacia Logan - 25€</option>
-                <option>Ford Fiesta - 22€</option>
-                <option>Renault Captur - 25€</option>
-            </select>
-            <input type="date" required>
-            <input type="date" required>
-            <button type="submit">Confirmer la réservation</button>
-        </form>
-    </section>
-
-    <section id="contact" class="contact">
-        <h2>Nous Contacter</h2>
-        <p>📞 06 93 61 64 24</p>
-        <p>📧 info@locamwin.re</p>
-        <p>📍 La Réunion, France</p>
-    </section>
-
+    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 LocaMwin - Location Île de la Réunion</p>
-        <p>06 93 61 64 24</p>
+        <p>📞 06 93 61 64 24 | Votre confiance, notre priorité</p>
     </footer>
 
+    <script>
+        function reserverVoiture(nom, prix) {
+            document.getElementById('voiture').value = nom + ' - ' + prix + '€';
+            document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' });
+            calculerPrix();
+        }
+
+        function calculerPrix() {
+            const voiture = document.getElementById('voiture').value;
+            const dateDebut = new Date(document.getElementById('dateDebut').value);
+            const dateFin = new Date(document.getElementById('dateFin').value);
+            
+            if (voiture && dateDebut && dateFin && dateDebut < dateFin) {
+                const prix = parseInt(voiture.split(' - ')[1]);
+                const diffTime = dateFin - dateDebut;
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                const total = diffDays * prix;
+                document.getElementById('prixTotal').innerText = total + '€';
+            } else {
+                document.getElementById('prixTotal').innerText = '0€';
+            }
+        }
+
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci ! Votre réservation a été reçue. Nous vous contacterons bientôt!');
+            this.reset();
+            document.getElementById('prixTotal').innerText = '0€';
+        });
+    </script>
+</body>
+</html>
     <script src="script.js"></script>
 </body>
 </html>
