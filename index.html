@@ -1,28 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Rental Website</title>
+    <title>LocaMwin - Location de Voitures à La Réunion</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to LocaMwin Car Rentals</h1>
+    <header class="header">
+        <div class="header-content">
+            <h1>LocaMwin</h1>
+            <p>Location Île de la Réunion</p>
+            <p>📞 06 93 61 64 24</p>
+        </div>
     </header>
-    <main>
-        <section>
-            <h2>Find Your Perfect Car</h2>
-            <p>Choose from a wide selection of vehicles for your next adventure.</p>
-        </section>
-        <section>
-            <h2>Current Date and Time</h2>
-            <p>2026-04-18 14:25:12 UTC</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 LocaMwin. All rights reserved.</p>
-        <p>Logged in as: locamwin-Reunion</p>
+
+    <nav class="navbar">
+        <a href="#accueil">Accueil</a>
+        <a href="#voitures">Nos Voitures</a>
+        <a href="#reservation">Réservation</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="accueil" class="hero">
+        <h2>Louez Votre Voiture à La Réunion</h2>
+        <p>À partir de 22€ par jour</p>
+    </section>
+
+    <section id="voitures" class="voitures">
+        <h2>Nos Voitures Disponibles</h2>
+        <div class="cars-container">
+            <div class="car-card">
+                <h3>Dacia Logan</h3>
+                <p class="price">25€/jour</p>
+                <ul>
+                    <li>✓ Kilométrage illimité</li>
+                    <li>✓ Climatisation</li>
+                    <li>✓ Régulateur de vitesse</li>
+                    <li>✓ Livraison sur toute l'île</li>
+                </ul>
+                <button onclick="alert('Réservation - Dacia Logan')">Réserver</button>
+            </div>
+
+            <div class="car-card">
+                <h3>Ford Fiesta</h3>
+                <p class="price">22€/jour</p>
+                <ul>
+                    <li>✓ Kilométrage illimité</li>
+                    <li>✓ Climatisation</li>
+                    <li>✓ Régulateur de vitesse</li>
+                    <li>✓ Livraison sur toute l'île</li>
+                </ul>
+                <button onclick="alert('Réservation - Ford Fiesta')">Réserver</button>
+            </div>
+
+            <div class="car-card">
+                <h3>Renault Captur</h3>
+                <p class="price">25€/jour</p>
+                <ul>
+                    <li>✓ Kilométrage illimité</li>
+                    <li>✓ Climatisation</li>
+                    <li>✓ Régulateur de vitesse</li>
+                    <li>✓ Livraison sur toute l'île</li>
+                </ul>
+                <button onclick="alert('Réservation - Renault Captur')">Réserver</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="reservation" class="reservation">
+        <h2>Formulaire de Réservation</h2>
+        <form id="form">
+            <input type="text" placeholder="Nom complet" required>
+            <input type="email" placeholder="Email" required>
+            <input type="tel" placeholder="Téléphone" required>
+            <select required>
+                <option>Sélectionnez une voiture</option>
+                <option>Dacia Logan - 25€</option>
+                <option>Ford Fiesta - 22€</option>
+                <option>Renault Captur - 25€</option>
+            </select>
+            <input type="date" required>
+            <input type="date" required>
+            <button type="submit">Confirmer la réservation</button>
+        </form>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Nous Contacter</h2>
+        <p>📞 06 93 61 64 24</p>
+        <p>📧 info@locamwin.re</p>
+        <p>📍 La Réunion, France</p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 LocaMwin - Location Île de la Réunion</p>
+        <p>06 93 61 64 24</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
